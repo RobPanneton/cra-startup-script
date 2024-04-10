@@ -66,23 +66,35 @@ def create_cra():
 
 
     # RUN CRA W/ TYPESCRIPT
-    project_directory = ""
+    # project_directory = ""
     
-    if folder_name == "coding":
-        project_directory = f"C:\\Users\\PC\\Documents\\Coding\\{project_name}"
-    elif folder_name == "frontendmentor":
-        project_directory = f"C:\\Users\\PC\\Documents\\Coding\\frontendmentor\\{project_name}"
-    else:
-        print(f"invalid directory: {project_directory}")
-        return
+    # if folder_name == "coding":
+    #     project_directory = f"C:\\Users\\PC\\Documents\\Coding\\{project_name}"
+    # elif folder_name == "frontendmentor":
+    #     project_directory = f"C:\\Users\\PC\\Documents\\Coding\\frontendmentor\\{project_name}"
+    # else:
+    #     print(f"invalid directory: {project_directory}")
+    #     return
 
-    print(f"creating react typescript app in the following directory: {project_directory}")
+    # print(f"creating react typescript app in the following directory: {project_directory}")
 
-    command = ["npx", "create-react-app", "app", "--template", "typescript"]    
-    subprocess.run(command, shell=True, check=True, cwd=project_directory, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    # command = ["npx", "create-react-app", "app", "--template", "typescript"]    
+    # subprocess.run(command, shell=True, check=True, cwd=project_directory, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    print("CRA complete")
+    # print("CRA complete")
 
+    # GET INTO APP FOLDER AND SRC FOLDER AND DELETE USELESS FILES
+
+    pyautogui.typewrite("cd app/src")
+    time.sleep(0.5)
+    pyautogui.press("enter")
+    time.sleep(0.5)
+    pyautogui.typewrite("rm App.css App.test.tsx index.css logo.svg react-app-env.d.ts reportWebVitals.ts setupTests.ts")
+    time.sleep(0.5)
+    pyautogui.press("enter")
+    time.sleep(2)
+
+    
 
 
 

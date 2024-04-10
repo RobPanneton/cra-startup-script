@@ -46,4 +46,24 @@ def create_cra():
     # ADD CHECKER TO MAKE SURE BASH WINDOW IS STILL OPEN BEFORE CONTINUING?
 
 
+    # NAVIGATE TO CODING FOLDER
+    time.sleep(2)
+    if folder_path == "coding":
+        pyautogui.typewrite("cd documents/coding")
+
+    if folder_path == "coding":
+        pyautogui.typewrite("cd documents/coding/frontendmentor")
+
+    time.sleep(1)
+    pyautogui.press('enter')
+
+    # NAVIGATE TO PROJECT FOLDER
+    pyautogui.typewrite(f"cd {project_name}")
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(2)
+
+
+
+
 create_cra()

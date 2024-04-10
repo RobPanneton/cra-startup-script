@@ -94,7 +94,27 @@ def create_cra():
     pyautogui.press("enter")
     time.sleep(2)
 
-    
+    # EDIT APP AND INDEX
+    # Start the here-document command to write multi-line content to App.tsx
+    pyautogui.write('cat <<EOF > App.tsx', interval=0.025)
+    pyautogui.press('enter')
+
+    # The content of your TypeScript file
+    ts_content = """import React from "react";\n
+import "./cssReset.scss";\n
+export const App: React.FC = () => {
+    return <div>clean cra</div>;
+};
+"""
+
+    # Write the TypeScript content line by line
+    for line in ts_content.split('\n'):
+        pyautogui.write(line, interval=0.025)
+        pyautogui.press('enter')
+
+    # End the here-document
+    pyautogui.write('EOF', interval=0.025)
+    pyautogui.press('enter')
 
 
 

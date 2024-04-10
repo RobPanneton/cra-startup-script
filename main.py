@@ -116,6 +116,35 @@ export const App: React.FC = () => {
     pyautogui.write('EOF', interval=0.025)
     pyautogui.press('enter')
 
+    ############
+    time.sleep(2)
+
+    pyautogui.write('cat <<EOF > index.tsx', interval=0.025)
+    pyautogui.press('enter')
+
+    # The content of your TypeScript file
+    ts_content ="""import React from "react";
+import ReactDOM from "react-dom/client";
+
+import { App } from "./App";
+
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
+root.render(<App />);
+"""
+
+    # Write the TypeScript content line by line
+    for line in ts_content.split('\n'):
+        pyautogui.write(line, interval=0.025)
+        pyautogui.press('enter')
+
+    # End the here-document
+    pyautogui.write('EOF', interval=0.025)
+    pyautogui.press('enter')
+
+
+
 
 
 

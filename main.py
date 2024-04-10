@@ -1,5 +1,8 @@
 import subprocess
 
+import pyautogui
+import time
+
 
 def create_cra():
 
@@ -23,11 +26,22 @@ def create_cra():
 
 
     # OPEN GIT BASH
+    # Option 1: open with Popen with an assumed directly path 
     # Path to the Git Bash executable
-    git_bash_path = r"C:\Program Files\Git\git-bash.exe"
+    # git_bash_path = r"C:\Program Files\Git\git-bash.exe"
 
-    # Use subprocess.Popen to open Git Bash
-    subprocess.Popen(git_bash_path)
+    # # Use subprocess.Popen to open Git Bash
+    # subprocess.Popen(git_bash_path)
+
+    # Option 2: use windows search to launch it
+    time.sleep(2)
+    pyautogui.press('win')
+
+    time.sleep(1)
+    pyautogui.typewrite('git bash')
+
+    time.sleep(1)
+    pyautogui.press('enter')
 
     # ADD CHECKER TO MAKE SURE BASH WINDOW IS STILL OPEN BEFORE CONTINUING?
 

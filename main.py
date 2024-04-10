@@ -95,8 +95,9 @@ def create_cra():
     time.sleep(2)
 
     # EDIT APP AND INDEX
+    typingSpeed = 0.001
     # Start the here-document command to write multi-line content to App.tsx
-    pyautogui.write('cat <<EOF > App.tsx', interval=0.025)
+    pyautogui.write('cat <<EOF > App.tsx', interval=typingSpeed)
     pyautogui.press('enter')
 
     # The content of your TypeScript file
@@ -109,17 +110,17 @@ export const App: React.FC = () => {
 
     # Write the TypeScript content line by line
     for line in ts_content.split('\n'):
-        pyautogui.write(line, interval=0.025)
+        pyautogui.write(line, interval=typingSpeed)
         pyautogui.press('enter')
 
     # End the here-document
-    pyautogui.write('EOF', interval=0.025)
+    pyautogui.write('EOF', interval=typingSpeed)
     pyautogui.press('enter')
 
     ############
     time.sleep(2)
 
-    pyautogui.write('cat <<EOF > index.tsx', interval=0.025)
+    pyautogui.write('cat <<EOF > index.tsx', interval=typingSpeed)
     pyautogui.press('enter')
 
     # The content of your TypeScript file
@@ -136,14 +137,124 @@ root.render(<App />);
 
     # Write the TypeScript content line by line
     for line in ts_content.split('\n'):
-        pyautogui.write(line, interval=0.025)
+        pyautogui.write(line, interval=typingSpeed)
         pyautogui.press('enter')
 
     # End the here-document
-    pyautogui.write('EOF', interval=0.025)
+    pyautogui.write('EOF', interval=typingSpeed)
+    pyautogui.press('enter')
+
+    ############
+    time.sleep(2)
+
+    pyautogui.write('cat <<EOF > variables.scss', interval=typingSpeed)
+    pyautogui.press('enter')
+
+    # The content of your TypeScript file
+    ts_content = ""
+
+    # Write the TypeScript content line by line
+    for line in ts_content.split('\n'):
+        pyautogui.write(line, interval=typingSpeed)
+        pyautogui.press('enter')
+
+    # End the here-document
+    pyautogui.write('EOF', interval=typingSpeed)
     pyautogui.press('enter')
 
 
+    ############
+    time.sleep(2)
+
+    pyautogui.write('cat <<EOF > cssReset.scss', interval=typingSpeed)
+    pyautogui.press('enter')
+
+    # The content of your TypeScript file
+    ts_content = """/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
+acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong,
+sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
+caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption,
+figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+"""
+
+    # Write the TypeScript content line by line
+    for line in ts_content.split('\n'):
+        pyautogui.write(line, interval=typingSpeed)
+        pyautogui.press('enter')
+
+    # End the here-document
+    pyautogui.write('EOF', interval=typingSpeed)
+    pyautogui.press('enter')
+
+
+    ############
+    time.sleep(2)
+
+    pyautogui.write('cat <<EOF > react-app-env.d.ts', interval=typingSpeed)
+    pyautogui.press('enter')
+
+    # The content of your TypeScript file
+    ts_content = """declare module "*.png";
+declare module "*.svg";
+declare module "*.jpeg";
+declare module "*.jpg";
+declare module "*.scss";
+declare module "*.webp";
+"""
+
+    # Write the TypeScript content line by line
+    for line in ts_content.split('\n'):
+        pyautogui.write(line, interval=typingSpeed)
+        pyautogui.press('enter')
+
+    # End the here-document
+    pyautogui.write('EOF', interval=typingSpeed)
+    pyautogui.press('enter')
 
 
 

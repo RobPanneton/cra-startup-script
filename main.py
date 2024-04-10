@@ -67,6 +67,8 @@ def create_cra():
 
     # RUN CRA W/ TYPESCRIPT
     # project_directory = ""
+
+    project_directory = ""
     
     if folder_name == "coding":
         project_directory = f"C:\\Users\\PC\\Documents\\Coding\\{project_name}"
@@ -77,17 +79,22 @@ def create_cra():
         return
 
     print(f"creating react typescript app in the following directory: {project_directory}")
+    print(f"please wait, this will take a minute")
+
 
     commandCRA = ["npx", "create-react-app", "app", "--template", "typescript"]    
     subprocess.run(commandCRA, shell=True, check=True, cwd=project_directory, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    print("CRA complete")
+    print("CRA complete\n")
 
     time.sleep(0.5)
 
     commandSass = ["npm", "install", "sass", "--save-dev"]
     app_directory = f"{project_directory}\\app"
-    subprocess.run(commandSass, check=True, cwd=app_directory, Text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE )
+
+    print(f"adding sass in the following directory: {app_directory}")
+
+    subprocess.run(commandSass, shell=True, check=True, cwd=app_directory, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE )
 
     print("Sass has been added to the project")
 
@@ -98,7 +105,7 @@ def create_cra():
 
 
 
-    pyautogui.typewrite("cd src")
+    pyautogui.typewrite("cd app/src")
     time.sleep(0.5)
     pyautogui.press("enter")
     time.sleep(0.5)
@@ -116,7 +123,7 @@ def create_cra():
     # The content of your TypeScript file
     ts_content = """import React from "react";\n
 import "./cssReset.scss";\n
-export const App: React.FC = () => {
+export function App() {
     return <div>clean cra</div>;
 };
 """
@@ -131,7 +138,7 @@ export const App: React.FC = () => {
     pyautogui.press('enter')
 
     ############
-    time.sleep(2)
+    time.sleep(1)
 
     pyautogui.write('cat <<EOF > index.tsx', interval=typingSpeed)
     pyautogui.press('enter')
@@ -158,7 +165,7 @@ root.render(<App />);
     pyautogui.press('enter')
 
     ############
-    time.sleep(2)
+    time.sleep(1)
 
     pyautogui.write('cat <<EOF > variables.scss', interval=typingSpeed)
     pyautogui.press('enter')
@@ -177,62 +184,13 @@ root.render(<App />);
 
 
     ############
-    time.sleep(2)
+    time.sleep(1)
 
     pyautogui.write('cat <<EOF > cssReset.scss', interval=typingSpeed)
     pyautogui.press('enter')
 
     # The content of your TypeScript file
-    ts_content = """/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr,
-acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong,
-sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
-caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
-figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption,
-figure, footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+    ts_content = """/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License: none (public domain) */ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; } table { border-collapse: collapse; border-spacing: 0; } *, *::before, *::after { box-sizing: border-box; }
 """
 
     # Write the TypeScript content line by line
@@ -268,5 +226,33 @@ declare module "*.webp";
     # End the here-document
     pyautogui.write('EOF', interval=typingSpeed)
     pyautogui.press('enter')
-    
+
+
+    # RUN THE APP AND OPEN VS CODE
+    time.sleep(1)
+    pyautogui.typewrite("cd ..")
+    time.sleep(0.5)
+    pyautogui.press("enter")
+    time.sleep(0.5)
+    pyautogui.typewrite("cd ..")
+    time.sleep(0.5)
+    pyautogui.press("enter")
+    time.sleep(0.5)
+    pyautogui.typewrite("code .")
+    time.sleep(0.5)
+    pyautogui.press("enter")
+
+    time.sleep(5)
+    pyautogui.hotkey("ctrl", "`")
+    time.sleep(1)
+    pyautogui.typewrite("cd app")
+    time.sleep(0.5)
+    pyautogui.press("enter")
+    time.sleep(1)
+    pyautogui.typewrite("npm start")
+    time.sleep(1)
+    pyautogui.press("enter")
+
+
+
 create_cra()

@@ -51,17 +51,26 @@ def create_cra():
     if folder_path == "coding":
         pyautogui.typewrite("cd documents/coding")
 
-    if folder_path == "coding":
+    if folder_path == "frontendmentor":
         pyautogui.typewrite("cd documents/coding/frontendmentor")
 
-    time.sleep(1)
+    time.sleep(0.3)
     pyautogui.press('enter')
 
     # NAVIGATE TO PROJECT FOLDER
     pyautogui.typewrite(f"cd {project_name}")
-    time.sleep(1)
+    time.sleep(0.3)
     pyautogui.press('enter')
-    time.sleep(2)
+    time.sleep(1)
+
+
+
+    # RUN CRA W/ TYPESCRIPT
+    project_directory = ""
+
+    command = ["npx create-react-app app --template typescript"]
+    subprocess.run(command, shell=True, check=True, cwd=project_directory, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
 
 
 

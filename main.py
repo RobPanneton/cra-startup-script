@@ -22,14 +22,14 @@ def create_cra():
 
 
 
-    # # OPEN GIT BASH
-    # # Path to the Git Bash executable
-    # git_bash_path = r"C:\Program Files\Git\git-bash.exe"
+    # OPEN GIT BASH
+    # Path to the Git Bash executable
+    git_bash_path = r"C:\Program Files\Git\git-bash.exe"
 
-    # # Use subprocess.Popen to open Git Bash
-    # subprocess.Popen(git_bash_path)
+    # Use subprocess.Popen to open Git Bash
+    subprocess.Popen(git_bash_path)
 
-    # # ADD CHECKER TO MAKE SURE BASH WINDOW IS STILL OPEN BEFORE CONTINUING?
+    # ADD CHECKER TO MAKE SURE BASH WINDOW IS STILL OPEN BEFORE CONTINUING?
 
 
 create_cra()

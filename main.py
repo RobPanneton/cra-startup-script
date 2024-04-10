@@ -8,10 +8,10 @@ def create_cra():
 
     # # GET INFO FROM USER
     # Prompt the user for the folder path where the project will be created
-    folder_path = input("Please enter the folder path where the project will be created: ")
+    folder_name = input("Please enter the folder path where the project will be created: ")
 
     # Exit program if folder is invalid
-    if folder_path != "coding" and folder_path != "frontendmentor":
+    if folder_name != "coding" and folder_name != "frontendmentor":
         print("invalid input")
         return
 
@@ -19,7 +19,7 @@ def create_cra():
     project_name = input("Please enter the name of the project folder: ")
 
     # Just for demonstration, print out the collected information
-    print(f"Folder Path: {folder_path}")
+    print(f"Folder Path: {folder_name}")
     print(f"Project Name: {project_name}")
 
 
@@ -48,10 +48,10 @@ def create_cra():
 
     # NAVIGATE TO CODING FOLDER
     time.sleep(2)
-    if folder_path == "coding":
+    if folder_name == "coding":
         pyautogui.typewrite("cd documents/coding")
 
-    if folder_path == "frontendmentor":
+    if folder_name == "frontendmentor":
         pyautogui.typewrite("cd documents/coding/frontendmentor")
 
     time.sleep(0.3)
@@ -67,9 +67,23 @@ def create_cra():
 
     # RUN CRA W/ TYPESCRIPT
     project_directory = ""
+    
+    if folder_name == "coding":
+        project_directory = f"C:\\Users\\PC\\Documents\\Coding\\{project_name}"
+    elif folder_name == "frontendmentor":
+        project_directory = f"C:\\Users\\PC\\Documents\\Coding\\frontendmentor\\{project_name}"
+    else:
+        print(f"invalid directory: {project_directory}")
+        return
 
-    command = ["npx create-react-app app --template typescript"]
+    print(f"creating react typescript app in the following directory: {project_directory}")
+
+    command = ["npx", "create-react-app", "app", "--template", "typescript"]    
     subprocess.run(command, shell=True, check=True, cwd=project_directory, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    print("CRA complete")
+
+
 
 
 

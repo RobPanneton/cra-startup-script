@@ -123,7 +123,7 @@ def create_cra():
     # The content of your TypeScript file
     ts_content = """import React from "react";\n
 import "./cssReset.scss";\n
-export function App() {
+export const App = () => {
     return <div>clean cra</div>;
 };
 """
